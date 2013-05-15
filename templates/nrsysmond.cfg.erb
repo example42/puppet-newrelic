@@ -13,7 +13,7 @@
 #          required in order for the server monitor to start.
 # Default: none
 #
-license_key=<%= scope.lookupvar('newrelic_sysmond::license_key') %>
+license_key=<%= scope.lookupvar('newrelic::license_key') %>
 
 #
 # Option : loglevel
@@ -28,7 +28,7 @@ license_key=<%= scope.lookupvar('newrelic_sysmond::license_key') %>
 # Default: error
 # Note   : Can also be set with the -d command line option.
 #
-loglevel=<%= scope.lookupvar('newrelic_sysmond::loglevel') %>
+loglevel=<%= scope.lookupvar('newrelic::loglevel') %>
 
 #
 # Option : logfile
@@ -38,7 +38,7 @@ loglevel=<%= scope.lookupvar('newrelic_sysmond::loglevel') %>
 # Default: none. However it is highly recommended you set a value for this.
 # Note   : Can also be set with the -l command line option.
 #
-logfile=<%= scope.lookupvar('newrelic_sysmond::log_file') %>
+logfile=<%= scope.lookupvar('newrelic::log_file') %>
 
 #
 # Option : proxy
@@ -51,7 +51,7 @@ logfile=<%= scope.lookupvar('newrelic_sysmond::log_file') %>
 #            fred:secret@proxy.mydomain.com:8181
 # Default: none (use a direct connection)
 #
-proxy=<%= scope.lookupvar('newrelic_sysmond::proxy') %>
+proxy=<%= scope.lookupvar('newrelic::proxy') %>
 
 #
 # Option : ssl
@@ -61,7 +61,7 @@ proxy=<%= scope.lookupvar('newrelic_sysmond::proxy') %>
 #          the SSL certificates settings below.
 # Default: false
 #
-ssl=<%= scope.lookupvar('newrelic_sysmond::ssl_enable') %>
+ssl=<%= scope.lookupvar('newrelic::ssl_enable') %>
 
 #
 # Option : ssl_ca_bundle
@@ -95,7 +95,7 @@ ssl=<%= scope.lookupvar('newrelic_sysmond::ssl_enable') %>
 # Default: /tmp/nrsysmond.pid 
 # Note   : Can also be set with the -p command line option.
 #
-pidfile=<%= scope.lookupvar('newrelic_sysmond::pid_file') %>
+pidfile=<%= scope.lookupvar('newrelic::pid_file') %>
 
 #
 # Option : collector_host
@@ -106,7 +106,7 @@ pidfile=<%= scope.lookupvar('newrelic_sysmond::pid_file') %>
 #          if SSL is enabled. If the port is omitted the default value is used.
 # Default: collector.newrelic.com
 #
-collector_host=<%= scope.lookupvar('newrelic_sysmond::collector_host') %>
+collector_host=<%= scope.lookupvar('newrelic::collector_host') %>
 #
 # Option : timeout
 # Value  : How long the monitor should wait to contact the collector host. If
@@ -119,5 +119,5 @@ collector_host=<%= scope.lookupvar('newrelic_sysmond::collector_host') %>
 #          once the original connection has been made. The value is in seconds.
 # Default: 30
 #
-timeout=<%= scope.lookupvar('newrelic_sysmond::timeout') %>
+timeout=<%= scope.lookupvar('newrelic::timeout') %>
 
