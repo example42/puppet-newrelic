@@ -17,7 +17,7 @@
 #          setting below. Valid values are (in increasing levels of verbosity):
 #          error        - show errors only
 #          warning      - show errors and warnings
-#          info         - show minimal additional information messages 
+#          info         - show minimal additional information messages
 #          verbose      - show more detailed information messages
 #          debug        - show debug messages
 #          verbosedebug - show very detailed debug messages
@@ -191,7 +191,7 @@
 # [*noops*]
 #   Set noop metaparameter to true for all the resources managed by the module.
 #   Basically you can run a dryrun for this specific module if you set
-#   this to true. Default: false
+#   this to true. Default: undef
 #
 # Default class params - As defined in newrelic::params.
 # Note that these variables are mostly defined and used in the module itself,
@@ -323,7 +323,6 @@ class newrelic (
   $bool_firewall=any2bool($firewall)
   $bool_debug=any2bool($debug)
   $bool_audit_only=any2bool($audit_only)
-  $bool_noops=any2bool($noops)
 
   ### Definition of some variables used in the module
   $manage_package = $newrelic::bool_absent ? {
@@ -398,7 +397,7 @@ class newrelic (
   ### Managed resources
   package { $newrelic::package:
     ensure  => $newrelic::manage_package,
-    noop    => $newrelic::bool_noops,
+    noop    => $newrelic::noops,
   }
 
   service { 'newrelic':
@@ -408,7 +407,7 @@ class newrelic (
     hasstatus  => $newrelic::service_status,
     pattern    => $newrelic::process,
     require    => Package[$newrelic::package],
-    noop       => $newrelic::bool_noops,
+    noop       => $newrelic::noops,
   }
 
   file { 'newrelic.conf':
@@ -423,7 +422,7 @@ class newrelic (
     content => $newrelic::manage_file_content,
     replace => $newrelic::manage_file_replace,
     audit   => $newrelic::manage_audit,
-    noop    => $newrelic::bool_noops,
+    noop    => $newrelic::noops,
   }
 
   # The whole newrelic configuration directory can be recursively overriden
@@ -439,7 +438,7 @@ class newrelic (
       force   => $newrelic::bool_source_dir_purge,
       replace => $newrelic::manage_file_replace,
       audit   => $newrelic::manage_audit,
-      noop    => $newrelic::bool_noops,
+      noop    => $newrelic::noops,
     }
   }
 
@@ -461,7 +460,7 @@ class newrelic (
       ensure    => $newrelic::manage_file,
       variables => $classvars,
       helper    => $newrelic::puppi_helper,
-      noop      => $newrelic::bool_noops,
+      noop      => $newrelic::noops,
     }
   }
 
@@ -475,7 +474,7 @@ class newrelic (
         target   => $newrelic::monitor_target,
         tool     => $newrelic::monitor_tool,
         enable   => $newrelic::manage_monitor,
-        noop     => $newrelic::bool_noops,
+        noop     => $newrelic::noops,
       }
     }
     if $newrelic::service != '' {
@@ -487,7 +486,7 @@ class newrelic (
         argument => $newrelic::process_args,
         tool     => $newrelic::monitor_tool,
         enable   => $newrelic::manage_monitor,
-        noop     => $newrelic::bool_noops,
+        noop     => $newrelic::noops,
       }
     }
   }
@@ -504,7 +503,7 @@ class newrelic (
       direction   => 'input',
       tool        => $newrelic::firewall_tool,
       enable      => $newrelic::manage_firewall,
-      noop        => $newrelic::bool_noops,
+      noop        => $newrelic::noops,
     }
   }
 
@@ -518,7 +517,7 @@ class newrelic (
       owner   => 'root',
       group   => 'root',
       content => inline_template('<%= scope.to_hash.reject { |k,v| k.to_s =~ /(uptime.*|path|timestamp|free|.*password.*|.*psk.*|.*key)/ }.to_yaml %>'),
-      noop    => $newrelic::bool_noops,
+      noop    => $newrelic::noops,
     }
   }
 
