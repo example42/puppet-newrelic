@@ -2,9 +2,9 @@
 
 This is a Puppet module for newrelic based on the second generation layout ("NextGen") of Example42 Puppet Modules.
 
-Made by Alessandro Franceschi / Lab42
+Written by Monica Colangelo
 
-Official site: http://www.example42.com
+Based on http://www.example42.com NextGen layout
 
 Official git repository: http://github.com/example42/puppet-newrelic
 
