@@ -93,7 +93,7 @@ class newrelic::params {
   }
 
   $port = ''
-  $protocol = ''
+  $protocol = 'tcp'
 
   # General Settings
   $my_class = ''
@@ -120,6 +120,6 @@ class newrelic::params {
   $puppi_helper = 'standard'
   $debug = false
   $audit_only = false
-  $noops = false
+  $noops = undef
 
 }
