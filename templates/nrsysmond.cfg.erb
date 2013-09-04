@@ -51,7 +51,11 @@ logfile=<%= scope.lookupvar('newrelic::log_file') %>
 #            fred:secret@proxy.mydomain.com:8181
 # Default: none (use a direct connection)
 #
+<% if scope.lookupvar('newrelic::proxy') != '' %>
 proxy=<%= scope.lookupvar('newrelic::proxy') %>
+<% else %>
+# proxy =
+<% end %>
 
 #
 # Option : ssl
@@ -85,6 +89,18 @@ ssl=<%= scope.lookupvar('newrelic::ssl_enable') %>
 # Note   : Can also be set with the -S command line option.
 #
 #ssl_ca_path=/etc/ssl/certs
+
+#
+# Option : hostname
+# Value  : A meaningful host name to be displayed in the user interface. On
+#          many cloud based nodes the host name is incomprehensible and makes
+#          finding a specific host problematic. Using this option will allow
+#          you to assign a more meaningful name to a host. You must ensure
+#          that all your host names are unique.
+# Default: Whatever the system calls the host.
+# Note   : Can also be set with the -n command line option.
+#
+hostname=<%= scope.lookupvar('newrelic::host_name') %>
 
 #
 # Option : pidfile

@@ -40,6 +40,15 @@
 #          the SSL certificates settings below.
 # Default: false
 #
+# [*hostname*]
+# Value  : A meaningful host name to be displayed in the user interface. On
+#          many cloud based nodes the host name is incomprehensible and makes
+#          finding a specific host problematic. Using this option will allow
+#          you to assign a more meaningful name to a host. You must ensure
+#          that all your host names are unique.
+# Default: Whatever the system calls the host.
+# Note   : Can also be set with the -n command line option.
+#
 # [*collector_host*]
 # Value  : The name of the New Relic collector to connect to. This should only
 #          ever be changed on advise from a New Relic support staff member.
@@ -267,6 +276,7 @@ class newrelic (
   $loglevel            = params_lookup( 'loglevel' ),
   $proxy               = params_lookup( 'proxy' ),
   $ssl_enable          = params_lookup( 'ssl_enable' ),
+  $host_name           = params_lookup( 'host_name' ),
   $collector_host      = params_lookup( 'collector_host' ),
   $timeout             = params_lookup( 'timeout' ),
   $dependencies_class  = params_lookup( 'dependencies_class' ),

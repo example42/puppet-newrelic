@@ -17,11 +17,11 @@ class newrelic::params {
   ### Module specific parameters
   $license_key = 'none'
   $loglevel = 'info'
-  $proxy = 'none'
+  $proxy = ''
   $ssl_enable = 'false'
   $collector_host = 'collector.newrelic.com'
   $timeout = '30'
-
+  $host_name = $::hostname
   $dependencies_class    = 'newrelic::dependencies'
 
 
