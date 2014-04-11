@@ -40,7 +40,7 @@ class newrelic::params {
   }
 
   $process = $::operatingsystem ? {
-    default => 'newrelic-sysmond',
+    default => 'nrsysmond',
   }
 
   $process_args = $::operatingsystem ? {
