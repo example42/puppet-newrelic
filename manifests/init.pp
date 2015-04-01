@@ -460,7 +460,7 @@ class newrelic (
 
   ### DEPENDENCIES class
   if $newrelic::dependencies_class != '' {
-    include $newrelic::dependencies_class
+    require $newrelic::dependencies_class
   }
 
   ### Provide puppi data, if enabled ( puppi => true )
