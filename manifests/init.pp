@@ -40,7 +40,7 @@
 #          the SSL certificates settings below.
 # Default: false
 #
-# [*hostname*]
+# [*host_name*]
 # Value  : A meaningful host name to be displayed in the user interface. On
 #          many cloud based nodes the host name is incomprehensible and makes
 #          finding a specific host problematic. Using this option will allow
