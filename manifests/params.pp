@@ -18,7 +18,7 @@ class newrelic::params {
   $license_key = 'none'
   $loglevel = 'info'
   $proxy = ''
-  $ssl_enable = 'false'
+  $ssl_enable = false
   $collector_host = 'collector.newrelic.com'
   $timeout = '30'
   $host_name = $::hostname

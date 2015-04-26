@@ -406,18 +406,18 @@ class newrelic (
 
   ### Managed resources
   package { $newrelic::package:
-    ensure  => $newrelic::manage_package,
-    noop    => $newrelic::noops,
+    ensure => $newrelic::manage_package,
+    noop   => $newrelic::noops,
   }
 
   service { 'newrelic':
-    ensure     => $newrelic::manage_service_ensure,
-    name       => $newrelic::service,
-    enable     => $newrelic::manage_service_enable,
-    hasstatus  => $newrelic::service_status,
-    pattern    => $newrelic::process,
-    require    => Package[$newrelic::package],
-    noop       => $newrelic::noops,
+    ensure    => $newrelic::manage_service_ensure,
+    name      => $newrelic::service,
+    enable    => $newrelic::manage_service_enable,
+    hasstatus => $newrelic::service_status,
+    pattern   => $newrelic::process,
+    require   => Package[$newrelic::package],
+    noop      => $newrelic::noops,
   }
 
   file { 'newrelic.conf':
