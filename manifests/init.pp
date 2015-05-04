@@ -12,7 +12,7 @@
 #          required in order for the server monitor to start.
 # Default: none
 #
-# [*loglevel*]
+# [*log_level*]
 # Value  : Level of detail you want in the log file (as defined by the logfile
 #          setting below. Valid values are (in increasing levels of verbosity):
 #          error        - show errors only
@@ -273,7 +273,7 @@
 #
 class newrelic (
   $license_key         = params_lookup( 'license_key' ),
-  $loglevel            = params_lookup( 'loglevel' ),
+  $log_level           = params_lookup( 'log_level' ),
   $proxy               = params_lookup( 'proxy' ),
   $ssl_enable          = params_lookup( 'ssl_enable' ),
   $host_name           = params_lookup( 'host_name' ),

@@ -16,7 +16,7 @@ class newrelic::params {
 
   ### Module specific parameters
   $license_key = 'none'
-  $loglevel = 'info'
+  $log_level = 'info'
   $proxy = ''
   $ssl_enable = false
   $collector_host = 'collector.newrelic.com'
